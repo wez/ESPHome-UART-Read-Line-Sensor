@@ -1,0 +1,11 @@
+{
+    "domain": "uart_read_line_sensor",
+    "name": "UART Read Line Sensor",
+    "version": "1.0.0",
+    "dependencies": ["uart", "text_sensor"],
+    "files": [
+        "uart_read_line_sensor.h",
+        "uart_read_line_sensor.cpp",
+        "text_sensor.py"
+    ]
+}
