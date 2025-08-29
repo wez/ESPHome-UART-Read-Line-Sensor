@@ -19,7 +19,7 @@ namespace esphome {
                         switch (byte) {
                             case '\n':
                             case '\r':
-                                if (!m_buffer.is_empty()) {
+                                if (!m_buffer.empty()) {
                                     publish_state(m_buffer);
                                     m_buffer.clear();
                                 }
