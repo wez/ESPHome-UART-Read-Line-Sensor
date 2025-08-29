@@ -24,7 +24,8 @@ namespace esphome {
                                 m_buffer.clear();
                                 break;
                             default:
-                                if (byte > 0) {
+                                if (byte > 0 && (byte & 0x80) == 0) {
+                                    // Only allow valid looking 7-bit data
                                     m_buffer.push_back(byte);
                                 }
                         }                                
