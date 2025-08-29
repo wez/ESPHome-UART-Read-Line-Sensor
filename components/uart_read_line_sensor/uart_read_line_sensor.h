@@ -18,12 +18,14 @@ namespace esphome {
                         int byte = read();
                         switch (byte) {
                             case '\n':
-                                break;
                             case '\r':
-                                publish_state(m_buffer);
-                                m_buffer.clear();
+                                if (!m_buffer.is_empty()) {
+                                    publish_state(m_buffer);
+                                    m_buffer.clear();
+                                }
                                 break;
                             default:
+                                ESP_LOGI("line-sensor", "got byte %d 0x%x", byte, byte);
                                 if (byte > 0 && (byte & 0x80) == 0) {
                                     // Only allow valid looking 7-bit data
                                     m_buffer.push_back(byte);
